@@ -1,0 +1,28 @@
+{
+  "name": "bes-ripple",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BeSaRa/bes-ripple.git"
+  },
+  "author": {
+    "name": "Ahmed BeSaRa",
+    "url": "https://www.linkedin.com/in/besara/",
+    "email": "ahmedbesara@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/BeSaRa/bes-ripple/issues"
+  },
+  "homepage": "https://github.com/BeSaRa/bes-ripple",
+  "readme": "https://github.com/BeSaRa/bes-ripple#readme",
+  "private": false,
+  "license": "MIT",
+  "description": "Angular library for making a Ripple Effect on any DOM element"
+}

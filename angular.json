@@ -3,5 +3,156 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "bes-ripple-example": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/bes-ripple-example",
+      "sourceRoot": "projects/bes-ripple-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/bes-ripple-example",
+            "index": "projects/bes-ripple-example/src/index.html",
+            "main": "projects/bes-ripple-example/src/main.ts",
+            "polyfills": "projects/bes-ripple-example/src/polyfills.ts",
+            "tsConfig": "projects/bes-ripple-example/tsconfig.app.json",
+            "assets": [
+              "projects/bes-ripple-example/src/favicon.ico",
+              "projects/bes-ripple-example/src/assets"
+            ],
+            "styles": [
+              "projects/bes-ripple-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/bes-ripple-example/src/environments/environment.ts",
+                  "with": "projects/bes-ripple-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "bes-ripple-example:build:production"
+            },
+            "development": {
+              "browserTarget": "bes-ripple-example:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bes-ripple-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bes-ripple-example/src/test.ts",
+            "polyfills": "projects/bes-ripple-example/src/polyfills.ts",
+            "tsConfig": "projects/bes-ripple-example/tsconfig.spec.json",
+            "karmaConfig": "projects/bes-ripple-example/karma.conf.js",
+            "assets": [
+              "projects/bes-ripple-example/src/favicon.ico",
+              "projects/bes-ripple-example/src/assets"
+            ],
+            "styles": [
+              "projects/bes-ripple-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/bes-ripple-example/**/*.ts",
+              "projects/bes-ripple-example/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "bes-ripple": {
+      "projectType": "library",
+      "root": "projects/bes-ripple",
+      "sourceRoot": "projects/bes-ripple/src",
+      "prefix": "bes",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/bes-ripple/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/bes-ripple/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/bes-ripple/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bes-ripple/src/test.ts",
+            "tsConfig": "projects/bes-ripple/tsconfig.spec.json",
+            "karmaConfig": "projects/bes-ripple/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/bes-ripple/**/*.ts",
+              "projects/bes-ripple/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  },
+  "defaultProject": "bes-ripple-example"
 }
